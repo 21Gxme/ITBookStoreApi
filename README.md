@@ -28,30 +28,6 @@ This project consists of a RESTful API backend built with **.NET 8 (C#)** and a 
    dotnet run --project ITBookStoreApi/ITBookStoreApi.csproj
    ```
 
-The API will be hosted on `http://localhost:5188` (or similar, depending on your environment). A Swagger interface is available at `http://localhost:5188/swagger` when running in Development mode.
-
-## Getting Started: Frontend App
-
-1. Navigate to the frontend folder:
-
-   ```bash
-   cd frontend
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Run the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-The frontend application will be hosted on `http://localhost:3000`.
-
 ## Endpoints (Backend)
 
 1. **`POST /register`**
