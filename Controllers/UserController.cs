@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using ITBookStoreApi.Data;
 using ITBookStoreApi.DTOs;
 using ITBookStoreApi.Models;
@@ -22,6 +23,15 @@ public class UserController : ControllerBase
     [HttpPost("like")]
     public async Task<IActionResult> LikeBook([FromBody] UserLikeRequest request)
     {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+        if (userIdClaim == null)
+            return Unauthorized();
+
+        int authenticatedUserId = int.Parse(userIdClaim.Value);
+
+        if (authenticatedUserId != request.user_id)
+            return StatusCode(403, new { error = "Unauthorized to like for another user" });
+
         var user = await _context.Users.FindAsync(request.user_id);
         if (user == null)
             return BadRequest(new { error = "User not found" });
