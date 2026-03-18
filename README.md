@@ -13,19 +13,19 @@ This project consists of a RESTful API backend built with **.NET 8 (C#)** and a 
 2. Restore dependencies:
 
    ```bash
-   dotnet restore
+   dotnet restore BackendTest.sln
    ```
 
 3. Run the EF Core migrations to create the SQLite database (`itbookstore.db`):
 
    ```bash
-   dotnet ef database update --project ITBookStoreApi
+   dotnet ef database update --project ITBookStoreApi.csproj
    ```
 
 4. Run the application:
 
    ```bash
-   dotnet run --project ITBookStoreApi/ITBookStoreApi.csproj
+   dotnet run --project ITBookStoreApi.csproj
    ```
 
 ## Endpoints (Backend)
